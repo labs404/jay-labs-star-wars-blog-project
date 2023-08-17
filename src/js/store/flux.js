@@ -1,43 +1,69 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			people: [],
+			planets: [],
+			vehicles: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			initialLoading: () => {
+				getActions().fetchPeople();
+				getActions().fetchPlanets();
+				getActions().fetchVehicles();
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			fetchPeople: () => {
+				fetch("https://www.swapi.tech/api/people")
+				.then(response => {
+					if (!response.ok) throw Error(response.statusText);
+					return response.json();
+				})
+				.then(data => {
+					console.log("START - People Data");
+					console.log(data.results);
+					console.log("END - People Data");
+					setStore({ people: data.results });
+				})
+				.catch(error => console.log("ERROR MESSAGE @ fetchPeople()", error))
+			},
+			// fetchPeople: async () => {
+			// 	const response = await fetch("https://www.swapi.tech/api/people");
+			// 	let data = await response.json();
+			// 	console.log("START - People Data");
+			// 	console.log(data);
+			// 	console.log("END - People Data");
+			// },
+			fetchPlanets: () => {
+				fetch("https://www.swapi.tech/api/planets")
+				.then(response => {
+					if (!response.ok) throw Error(response.statusText);
+					return response.json();
+				})
+				.then(data => {
+					console.log("START - Planets Data");
+					console.log(data.results);
+					console.log("END - Planets Data");
+					setStore({ planets: data.results });
+				})
+				.catch(error => console.log("ERROR MESSAGE @ fetchPlanets()", error));
+			},
+			fetchVehicles: () => {
+				fetch("https://www.swapi.tech/api/vehicles")
+				.then(response => {
+					if(!response) throw Error(response.statusText);
+					return response.json();
+				})
+				.then(data => {
+					console.log("START - Vehicles Data");
+					console.log(data.results);
+					console.log("END - Vehicles Data");
+					setStore({ vehicles: data.results });
+				})
+				.then(error => console.log("ERROR MESSAGE @ fetchVehicles()", error))
+			},
 		}
 	};
 };

@@ -10,31 +10,46 @@ export const Demo = () => {
 
 	return (
 		<div className="container">
+			<h1>People</h1>
 			<ul className="list-group">
-				{store.demo.map((item, index) => {
+				{store.people.map((person, index) => {
 					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							style={{ background: item.background }}>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
+						<li	key={index}>
+							<b>Name:</b> {person.name} <br />
+							<b>UID:</b> {person.uid} <br />
+							<b>URL:</b> {person.url} <br />
 						</li>
 					);
 				})}
 			</ul>
 			<br />
+			<h1>Planets</h1>
+			<ul className="list-group">
+				{store.planets.map((planet, index) => {
+					return (
+						<li	key={index}>
+							<b>Name:</b> {planet.name} <br />
+							<b>UID:</b> {planet.uid} <br />
+							<b>URL:</b> {planet.url} <br />
+						</li>
+					);
+				})}
+			</ul>
+			<br />
+			<h1>Vehicles</h1>
+			<ul className="list-group">
+				{store.vehicles.map((vehicle, index) => {
+					return (
+						<li	key={index}>
+							<b>Name:</b> {vehicle.name} <br />
+							<b>UID:</b> {vehicle.uid} <br />
+							<b>URL:</b> {vehicle.url} <br />
+						</li>
+					);
+				})}
+			</ul>
+			<br />
+
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>
 			</Link>
