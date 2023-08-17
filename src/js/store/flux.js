@@ -7,13 +7,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
 			initialLoading: () => {
 				getActions().fetchPeople();
 				getActions().fetchPlanets();
 				getActions().fetchVehicles();
+				getActions().fetchIndividualPerson(1);
 			},
 			fetchPeople: () => {
 				fetch("https://www.swapi.tech/api/people")
@@ -64,6 +62,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				.then(error => console.log("ERROR MESSAGE @ fetchVehicles()", error))
 			},
+			fetchIndividualPerson: (id) => {
+				fetch("https://www.swapi.tech/api/people/"+id)
+				.then(response => {
+					if(!response) throw Error(response.statusText);
+					return response.json();
+				})
+				.then(data => {
+					console.log("START - individual person");
+					console.log(data.result.properties.name);
+					console.log("END - individual person");
+				})
+				.then(error => console.log("ERROR MESSAGE @ fetchVehicles()", error))
+			},
+			fetchIndividualPlanet: (id) => {
+				return null;
+			},
+			fetchIndividualVehicle: (id) => {
+				return null;
+			},
+			generatePerson: (array) => {
+				array.forEach((element) => console.log(element));
+			}
 		}
 	};
 };
