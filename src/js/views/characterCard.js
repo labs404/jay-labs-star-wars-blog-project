@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import propTypes from "prop-types";
 import "../../styles/card.css";
 
 
-const Card = (props) => {
+const CharacterCard = (props) => {
+    // const [store, actions] = useContext(Context);
+
+    // useEffect(() => {
+    //     actions.fetchIndividualPerson(props.uid);
+    // },[])
+
     let cardImgUrl = "https://starwars-visualguide.com/assets/img/" + props.cardType + "/" + props.uid + ".jpg";
     return (
         <>
@@ -19,8 +25,9 @@ const Card = (props) => {
                 />
                 <div className="card-body">
                     <h1>{props.name}</h1>
-                    <h2>{props.url}</h2>
-                    <h3>{props.uid}</h3>
+                    <p>gender</p>
+                    <p>hair color</p>
+                    <p>eye color</p>
                     <div className="row">
                         <div className="col text-start">
                             <a href={props.url} className="btn btn-primary">Learn More!</a>
@@ -35,8 +42,8 @@ const Card = (props) => {
     )
 }
 
-Card.propTypes = {
+CharacterCard.propTypes = {
     name: propTypes.string
 }
 
-export default Card;
+export default CharacterCard;

@@ -1,7 +1,7 @@
 .condensedCard {
     min-width: 400px !important;
-    min-height: 400px !important;
-    max-height: 401px;
+    min-height: 300px !important;
+    /* max-height: 401px; */
 }
 
 .condensedCard img {

@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 import "../../styles/card.css";
 
 
-const Card = (props) => {
+const PlanetCard = (props) => {
     let cardImgUrl = "https://starwars-visualguide.com/assets/img/" + props.cardType + "/" + props.uid + ".jpg";
     return (
         <>
@@ -19,8 +19,8 @@ const Card = (props) => {
                 />
                 <div className="card-body">
                     <h1>{props.name}</h1>
-                    <h2>{props.url}</h2>
-                    <h3>{props.uid}</h3>
+                    <p>population</p>
+                    <p>terrain</p>
                     <div className="row">
                         <div className="col text-start">
                             <a href={props.url} className="btn btn-primary">Learn More!</a>
@@ -35,8 +35,8 @@ const Card = (props) => {
     )
 }
 
-Card.propTypes = {
+PlanetCard.propTypes = {
     name: propTypes.string
 }
 
-export default Card;
+export default PlanetCard;

@@ -1,8 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+
 import Card from "./card";
+import CharacterCard from "./characterCard";
+import PlanetCard from "./planetCard";
+import VehicleCard from "./vehicleCard";
+
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -23,7 +28,7 @@ export const Home = () => {
 						<div className="cardScrollBars d-flex flex-row flex-nowrap overflow-auto">
 							{store.people.map((person, index) => {
 								return (
-									<Card 
+									<CharacterCard 
 										key={index} 
 										uid={person.uid} 
 										name={person.name} 
@@ -43,7 +48,7 @@ export const Home = () => {
 						<div className="cardScrollBars d-flex flex-row flex-nowrap overflow-auto">
 							{store.planets.map((planet, index) => {
 								return (
-									<Card 
+									<PlanetCard 
 										key={index} 
 										uid={planet.uid} 
 										name={planet.name} 
@@ -63,7 +68,7 @@ export const Home = () => {
 						<div className="cardScrollBars d-flex flex-row flex-nowrap overflow-auto">
 							{store.vehicles.map((vehicle, index) => {
 								return (
-									<Card 
+									<VehicleCard 
 										key={index} 
 										uid={vehicle.uid} 
 										name={vehicle.name} 

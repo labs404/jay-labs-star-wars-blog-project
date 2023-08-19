@@ -60,10 +60,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					// console.log("END - Vehicles Data");
 					setStore({ vehicles: data.results });
 				})
-				.then(error => console.log("ERROR MESSAGE @ fetchVehicles()", error))
+				.catch(error => console.log("ERROR MESSAGE @ fetchVehicles()", error))
 			},
 			fetchIndividualPerson: (id) => {
-				fetch("https://www.swapi.tech/api/people/"+id)
+				fetch("https://www.swapi.tech/api/people/"+ id)
 				.then(response => {
 					if(!response) throw Error(response.statusText);
 					return response.json();
@@ -73,7 +73,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(data.result.properties.name);
 					console.log("END - individual person");
 				})
-				.then(error => console.log("ERROR MESSAGE @ fetchVehicles()", error))
+				.catch(error => console.log("ERROR MESSAGE @ fetchVehicles()", error))
 			},
 			fetchIndividualPlanet: (id) => {
 				return null;
