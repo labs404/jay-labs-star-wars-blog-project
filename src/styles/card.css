@@ -1,0 +1,13 @@
+.condensedCard {
+    min-width: 400px !important;
+    min-height: 400px !important;
+    max-height: 401px;
+}
+
+.condensedCard img {
+    height: 200px;
+    width: 398px;
+    /* aspect-ratio: 1 / 1; */
+    object-fit: contain;
+    background-color: #CCCCCC;
+}

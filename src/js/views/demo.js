@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
@@ -10,7 +9,6 @@ export const Demo = () => {
 
 	return (
 		<div className="container">
-			{actions.fetchIndividualPerson(2)}
 			<h1>People</h1>
 			<ul className="list-group">
 				{store.people.map((person, index) => {

@@ -20,9 +20,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return response.json();
 				})
 				.then(data => {
-					console.log("START - People Data");
-					console.log(data.results);
-					console.log("END - People Data");
+					// console.log("START - People Data");
+					// console.log(data.results);
+					// console.log("END - People Data");
 					setStore({ people: data.results });
 				})
 				.catch(error => console.log("ERROR MESSAGE @ fetchPeople()", error))
@@ -41,9 +41,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return response.json();
 				})
 				.then(data => {
-					console.log("START - Planets Data");
-					console.log(data.results);
-					console.log("END - Planets Data");
+					// console.log("START - Planets Data");
+					// console.log(data.results);
+					// console.log("END - Planets Data");
 					setStore({ planets: data.results });
 				})
 				.catch(error => console.log("ERROR MESSAGE @ fetchPlanets()", error));
@@ -55,9 +55,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return response.json();
 				})
 				.then(data => {
-					console.log("START - Vehicles Data");
-					console.log(data.results);
-					console.log("END - Vehicles Data");
+					// console.log("START - Vehicles Data");
+					// console.log(data.results);
+					// console.log("END - Vehicles Data");
 					setStore({ vehicles: data.results });
 				})
 				.then(error => console.log("ERROR MESSAGE @ fetchVehicles()", error))
