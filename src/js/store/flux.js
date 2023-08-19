@@ -1,9 +1,15 @@
 const getState = ({ getStore, getActions, setStore }) => {
+	let newPeopleArr = [];
+	let newPlanetsArr = [];
+	let newVehiclesArr = [];
 	return {
 		store: {
 			people: [],
 			planets: [],
-			vehicles: []
+			vehicles: [],
+			peopleDetails: [],
+			planetDetails: [],
+			vehicleDetails: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -12,6 +18,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().fetchPlanets();
 				getActions().fetchVehicles();
 				getActions().fetchIndividualPerson(1);
+				getActions().fetchIndividualPerson(2);
+				getActions().fetchIndividualPerson(3);
 			},
 			fetchPeople: () => {
 				fetch("https://www.swapi.tech/api/people")
@@ -69,12 +77,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return response.json();
 				})
 				.then(data => {
-					console.log("START - individual person");
-					console.log(data.result.properties.name);
-					console.log("END - individual person");
+					newPeopleArr = [...newPeopleArr, data.result.properties];
+					setStore({ peopleDetails: newPeopleArr})
 				})
-				.catch(error => console.log("ERROR MESSAGE @ fetchVehicles()", error))
+				.catch(error => console.log("ERROR MESSAGE @ fetchIndividualPerson()", error))
 			},
+			// fetchIndividualPerson: async id => {
+			// 	const response = await fetch("https://www.swapi.tech/api/people/"+ id);
+			// 	let data = await response.json();
+			// 	console.log("line 84", data.result.properties);
+			// 	setStore({peopleDetails: [...peopleDetails,data.result.properties]});
+			// 	console.log("line 86");
+			// 	// setStore({peopleDetails: [...peopleDetails, data.result.properties]});
+			// },
 			fetchIndividualPlanet: (id) => {
 				return null;
 			},

@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from "react";
-
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-import Card from "./card";
+import TestCard from "./testCard";
 import CharacterCard from "./characterCard";
 import PlanetCard from "./planetCard";
 import VehicleCard from "./vehicleCard";
@@ -19,6 +18,8 @@ export const Home = () => {
 			<Link to="/demo">
 					<button className="btn btn-primary">Demo page</button>
 			</Link>
+			{/* <h1>{store.peopleDetails[1].name}</h1> */}
+			{(store.peopleDetails[1]) != null ? console.log("name: ", store.peopleDetails[1].name, "eye color: ", store.peopleDetails[1].eye_color) : null }
 			<div className="container">
 				<div className="row">
 					<div className="col-12">

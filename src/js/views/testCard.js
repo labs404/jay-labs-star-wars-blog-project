@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 import "../../styles/card.css";
 
 
-const Card = (props) => {
+const TestCard = (props) => {
     let cardImgUrl = "https://starwars-visualguide.com/assets/img/" + props.cardType + "/" + props.uid + ".jpg";
     return (
         <>
@@ -35,8 +35,8 @@ const Card = (props) => {
     )
 }
 
-Card.propTypes = {
+TestCard.propTypes = {
     name: propTypes.string
 }
 
-export default Card;
+export default TestCard;
