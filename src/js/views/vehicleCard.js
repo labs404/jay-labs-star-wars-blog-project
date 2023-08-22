@@ -20,22 +20,22 @@ const VehicleCard = (props) => {
                     <h1>{props.name}</h1>
                     <p>model: {props.model}</p>
                     <p>vehicle class: {props.vehicle_class}</p>
-                    <p>
-                        name : {props.name}
-                        model : {props.model}
-                        manufacturer : {props.manufacturer}
-                        cost in credits : {props.cost_in_credits}
-                        length : {props.length}
-                        max atmosphering speed : {props.max_atmosphering_speed}
-                        crew : {props.crew}
-                        passengers : {props.passengers}
-                        cargo capacity : {props.cargo_capacity}
-                        consumables : {props.consumables}
-                        vehicle class : {props.vehicle_class}
-                        pilots : {props.pilots}
-                        films : {props.films}
-                        url : {props.url}
-                    </p>
+
+                    <p>name : {props.name}</p>
+                    <p>model : {props.model}</p>
+                    <p>manufacturer : {props.manufacturer}</p>
+                    <p>cost in credits : {props.cost_in_credits}</p>
+                    <p>length : {props.length}</p>
+                    <p>max atmosphering speed : {props.max_atmosphering_speed}</p>
+                    <p>crew : {props.crew}</p>
+                    <p>passengers : {props.passengers}</p>
+                    <p>cargo capacity : {props.cargo_capacity}</p>
+                    <p>consumables : {props.consumables}</p>
+                    <p>vehicle class : {props.vehicle_class}</p>
+                    <p>pilots : {props.pilots}</p>
+                    <p>films : {props.films}</p>
+                    <p>url : {props.url}</p>
+
                     <div className="row">
                         <div className="col text-start">
                             <a href={props.url} className="btn btn-primary">Learn More!</a>
