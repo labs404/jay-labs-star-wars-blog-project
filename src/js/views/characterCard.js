@@ -4,18 +4,11 @@ import "../../styles/card.css";
 
 
 const CharacterCard = (props) => {
-    // const [store, actions] = useContext(Context);
-
-    // useEffect(() => {
-    //     actions.fetchIndividualPerson(props.uid);
-    // },[])
-
-    let cardImgUrl = "https://starwars-visualguide.com/assets/img/" + props.cardType + "/" + props.uid + ".jpg";
     return (
         <>
             <div className="condensedCard card m-1">
                 <img 
-                    src={cardImgUrl} 
+                    src={props.img} 
                     onError={({ currentTarget }) => {
                         currentTarget.onerror = null;
                         currentTarget.src="https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
@@ -25,9 +18,9 @@ const CharacterCard = (props) => {
                 />
                 <div className="card-body">
                     <h1>{props.name}</h1>
-                    <p>gender</p>
-                    <p>hair color</p>
-                    <p>eye color</p>
+                    <p>gender: {props.gender}</p>
+                    <p>hair color: {props.hair_color}</p>
+                    <p>eye color:{props.eye_color}</p>
                     <div className="row">
                         <div className="col text-start">
                             <a href={props.url} className="btn btn-primary">Learn More!</a>
@@ -47,3 +40,18 @@ CharacterCard.propTypes = {
 }
 
 export default CharacterCard;
+
+// name=
+// height=
+// mass=
+// hair_color=
+// skin_color=
+// eye_color=
+// birth_year=
+// gender
+// homeworld=
+// films=
+// species=
+// vehicles=
+// starships=
+// url=

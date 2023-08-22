@@ -18,7 +18,7 @@ export const Home = () => {
 			<Link to="/demo">
 					<button className="btn btn-primary">Demo page</button>
 			</Link>
-			{/* <h1>{store.peopleDetails[1].name}</h1> */}
+			{/* {store.peopleDetails} */}
 			{(store.peopleDetails[1]) != null ? console.log("name: ", store.peopleDetails[1].name, "eye color: ", store.peopleDetails[1].eye_color) : null }
 			<div className="container">
 				<div className="row">
@@ -31,10 +31,21 @@ export const Home = () => {
 								return (
 									<CharacterCard 
 										key={index} 
-										uid={person.uid} 
-										name={person.name} 
+										name={person.name}
+										height={person.height}
+										mass={person.mass}
+										hair_color={person.hair_color}
+										skin_color={person.skin_color}
+										eye_color={person.eye_color}
+										birth_year={person.birth_year}
+										gender={person.gender}
+										homeworld={person.homeworld}
+										films={person.films}
+										species={person.species}
+										vehicles={person.vehicles}
+										starships={person.starships}
 										url={person.url}
-										cardType="characters"
+										img={`https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`}
 									/>
 								);
 							})}
@@ -51,10 +62,19 @@ export const Home = () => {
 								return (
 									<PlanetCard 
 										key={index} 
-										uid={planet.uid} 
-										name={planet.name} 
+										name={planet.name}
+										rotation_period={planet.rotation_period}
+										orbital_period={planet.orbital_period}
+										diameter={planet.diameter}
+										climate={planet.climate}
+										gravity={planet.gravity}
+										terrain={planet.terrain}
+										surface_water={planet.surface_water}
+										population={planet.population}
+										residents={planet.residents}
+										films={planet.films}
 										url={planet.url}
-										cardType="planets"
+										img={`https://starwars-visualguide.com/assets/img/planets/${index + 1}.jpg`}
 									/>
 								);
 							})}
@@ -68,13 +88,25 @@ export const Home = () => {
 					<div className="container py-2 col-12">
 						<div className="cardScrollBars d-flex flex-row flex-nowrap overflow-auto">
 							{store.vehicles.map((vehicle, index) => {
+								let extractedImgUrl = "https://starwars-visualguide.com/assets/img/vehicles/" + (vehicle.url.split("https://swapi.dev/api/vehicles/").pop()).slice(0, -1) + ".jpg";
 								return (
 									<VehicleCard 
 										key={index} 
-										uid={vehicle.uid} 
-										name={vehicle.name} 
-										url={vehicle.url} 
-										cardType="vehicles"
+										name={vehicle.name}
+										model={vehicle.model}
+										manufacturer={vehicle.manufacturer}
+										cost_in_credits={vehicle.cost_in_credits}
+										length={vehicle.length}
+										max_atmosphering_speed={vehicle.max_atmosphering_speed}
+										crew={vehicle.crew}
+										passengers={vehicle.passengers}
+										cargo_capacity={vehicle.cargo_capacity}
+										consumables={vehicle.consumables}
+										vehicle_class={vehicle.vehicle_class}
+										pilots={vehicle.pilots}
+										films={vehicle.films}
+										url={vehicle.url}
+										img={extractedImgUrl}
 									/>
 								);
 							})}

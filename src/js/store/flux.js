@@ -22,7 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().fetchIndividualPerson(3);
 			},
 			fetchPeople: () => {
-				fetch("https://www.swapi.tech/api/people")
+				fetch("https://swapi.dev/api/people")
 				.then(response => {
 					if (!response.ok) throw Error(response.statusText);
 					return response.json();
@@ -36,14 +36,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.catch(error => console.log("ERROR MESSAGE @ fetchPeople()", error))
 			},
 			// fetchPeople: async () => {
-			// 	const response = await fetch("https://www.swapi.tech/api/people");
+			// 	const response = await fetch("https://www.swapi.dev/api/people");
 			// 	let data = await response.json();
 			// 	console.log("START - People Data");
 			// 	console.log(data);
 			// 	console.log("END - People Data");
 			// },
 			fetchPlanets: () => {
-				fetch("https://www.swapi.tech/api/planets")
+				fetch("https://swapi.dev/api/planets")
 				.then(response => {
 					if (!response.ok) throw Error(response.statusText);
 					return response.json();
@@ -57,7 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.catch(error => console.log("ERROR MESSAGE @ fetchPlanets()", error));
 			},
 			fetchVehicles: () => {
-				fetch("https://www.swapi.tech/api/vehicles")
+				fetch("https://swapi.dev/api/vehicles")
 				.then(response => {
 					if(!response) throw Error(response.statusText);
 					return response.json();
@@ -71,7 +71,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.catch(error => console.log("ERROR MESSAGE @ fetchVehicles()", error))
 			},
 			fetchIndividualPerson: (id) => {
-				fetch("https://www.swapi.tech/api/people/"+ id)
+				fetch("https://swapi.dev/api/people/"+ id)
 				.then(response => {
 					if(!response) throw Error(response.statusText);
 					return response.json();
@@ -82,22 +82,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				.catch(error => console.log("ERROR MESSAGE @ fetchIndividualPerson()", error))
 			},
-			// fetchIndividualPerson: async id => {
-			// 	const response = await fetch("https://www.swapi.tech/api/people/"+ id);
-			// 	let data = await response.json();
-			// 	console.log("line 84", data.result.properties);
-			// 	setStore({peopleDetails: [...peopleDetails,data.result.properties]});
-			// 	console.log("line 86");
-			// 	// setStore({peopleDetails: [...peopleDetails, data.result.properties]});
-			// },
 			fetchIndividualPlanet: (id) => {
-				return null;
+				fetch("https://swapi.dev/api/planets"+ id)
+				.then(response => {
+					if(!response) throw Error(response.statusText);
+					return response.json();
+				})
+				.then(data => {
+					newPlanetsArr = [...newPlanetsArr, data.result.properties];
+					setStore({ peopleDetails: newPlanetsArr})
+				})
+				.catch(error => console.log("ERROR MESSAGE @ fetchIndividualPlanet()", error))
 			},
 			fetchIndividualVehicle: (id) => {
-				return null;
-			},
-			generatePerson: (array) => {
-				array.forEach((element) => console.log(element));
+				fetch("https://swapi.dev/api/vehicles"+ id)
+				.then(response => {
+					if(!response) throw Error(response.statusText);
+					return response.json();
+				})
+				.then(data => {
+					newVehiclesArr = [...newVehiclesArr, data.result.properties];
+					setStore({ peopleDetails: newVehiclesArr})
+				})
+				.catch(error => console.log("ERROR MESSAGE @ fetchIndividualVehicle()", error))
 			}
 		}
 	};

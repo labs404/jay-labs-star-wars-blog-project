@@ -4,12 +4,11 @@ import "../../styles/card.css";
 
 
 const PlanetCard = (props) => {
-    let cardImgUrl = "https://starwars-visualguide.com/assets/img/" + props.cardType + "/" + props.uid + ".jpg";
     return (
         <>
             <div className="condensedCard card m-1">
                 <img 
-                    src={cardImgUrl} 
+                    src={props.img} 
                     onError={({ currentTarget }) => {
                         currentTarget.onerror = null;
                         currentTarget.src="https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
@@ -19,8 +18,8 @@ const PlanetCard = (props) => {
                 />
                 <div className="card-body">
                     <h1>{props.name}</h1>
-                    <p>population</p>
-                    <p>terrain</p>
+                    <p>population: {props.population}</p>
+                    <p>terrain: {props.terrain}</p>
                     <div className="row">
                         <div className="col text-start">
                             <a href={props.url} className="btn btn-primary">Learn More!</a>
@@ -40,3 +39,17 @@ PlanetCard.propTypes = {
 }
 
 export default PlanetCard;
+
+
+// name=
+// rotation_period=
+// orbital_period=
+// diameter=
+// climate=
+// gravity=
+// terrain=
+// surface_water=
+// population=
+// residents=
+// films=
+// url=
