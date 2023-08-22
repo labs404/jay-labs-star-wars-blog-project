@@ -49,16 +49,16 @@ const PlanetCard = (props) => {
 
 PlanetCard.propTypes = {
     name: propTypes.string,
-    rotation_period: propTypes.number,
-    orbital_period: propTypes.number,
-    diameter: propTypes.number,
+    rotation_period: propTypes.string,
+    orbital_period: propTypes.string,
+    diameter: propTypes.string,
     climate: propTypes.string,
     gravity: propTypes.string,
     terrain: propTypes.string,
-    surface_water: propTypes.number,
-    population: propTypes.number,
-    residents: propTypes.string,
-    films: propTypes.string,
+    surface_water: propTypes.string,
+    population: propTypes.string,
+    residents: propTypes.array,
+    films: propTypes.array,
     url: propTypes.string
 }
 

@@ -52,18 +52,18 @@ const CharacterCard = (props) => {
 
 CharacterCard.propTypes = {
     name: propTypes.string,
-    height: propTypes.number,
-    mass: propTypes.number,
+    height: propTypes.string,
+    mass: propTypes.string,
     hair_color: propTypes.string,
     skin_color: propTypes.string,
     eye_color: propTypes.string,
     birth_year: propTypes.string,
     gender: propTypes.string,
     homeworld: propTypes.string,
-    films: propTypes.string,
-    species: propTypes.string,
-    vehicles: propTypes.string,
-    starships: propTypes.string,
+    films: propTypes.array,
+    species: propTypes.array,
+    vehicles: propTypes.array,
+    starships: propTypes.array,
     url: propTypes.string,
 }
 

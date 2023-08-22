@@ -18,8 +18,6 @@ export const Home = () => {
 			<Link to="/demo">
 					<button className="btn btn-primary">Demo page</button>
 			</Link>
-			{/* {store.peopleDetails} */}
-			{(store.peopleDetails[1]) != null ? console.log("name: ", store.peopleDetails[1].name, "eye color: ", store.peopleDetails[1].eye_color) : null }
 			<div className="container">
 				<div className="row">
 					<div className="col-12">
