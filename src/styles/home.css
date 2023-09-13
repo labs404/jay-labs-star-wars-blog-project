@@ -3,14 +3,22 @@
 }
 
 .cardScrollBars::-webkit-scrollbar-track {
-    background: #666666;
+    background: #222222;
 }
 
 .cardScrollBars::-webkit-scrollbar-thumb {
-    background: #777777;
+    background: #333333;
     border-radius: 5px;
 }
 
 .cardScrollBars::-webkit-scrollbar-thumb:hover {
-    background: #888888;
+    background: #444444;
+}
+
+.container {
+    width: 100% !important;
+}
+
+.spacer-div {
+    height: 50px;
 }
