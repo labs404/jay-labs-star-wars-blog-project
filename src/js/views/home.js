@@ -55,7 +55,7 @@ export const Home = () => {
 								vehicle={vehicle}
 								index={index}
 								cardType="vehicle"
-								img={"https://starwars-visualguide.com/assets/img/vehicles/" + (vehicle.url.split("https://swapi.dev/api/vehicles/").pop()).slice(0, -1) + ".jpg"}
+								img={"https://starwars-visualguide.com/assets/img/vehicles/" + (vehicle.url.split("https://swapi.py4e.com/api/vehicles/").pop()).slice(0, -1) + ".jpg"}
 							/>
 						)}
 					</div>

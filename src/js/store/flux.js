@@ -13,7 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().fetchVehicles();
 			},
 			fetchPeople: () => {
-				fetch("https://swapi.dev/api/people")
+				fetch("https://swapi.py4e.com/api/people")
 				.then(response => {
 					if (!response.ok) throw Error(response.statusText);
 					return response.json();
@@ -24,7 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.catch(error => console.log("ERROR MESSAGE @ fetchPeople()", error))
 			},
 			fetchPlanets: () => {
-				fetch("https://swapi.dev/api/planets")
+				fetch("https://swapi.py4e.com/api/planets")
 				.then(response => {
 					if (!response.ok) throw Error(response.statusText);
 					return response.json();
@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.catch(error => console.log("ERROR MESSAGE @ fetchPlanets()", error));
 			},
 			fetchVehicles: () => {
-				fetch("https://swapi.dev/api/vehicles")
+				fetch("https://swapi.py4e.com/api/vehicles")
 				.then(response => {
 					if(!response) throw Error(response.statusText);
 					return response.json();

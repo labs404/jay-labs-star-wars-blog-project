@@ -10,7 +10,7 @@ export const Individual = () => {
     let individual = store[`${params.type}`][`${params.index}`]
     let peopleImgSrc = "https://starwars-visualguide.com/assets/img/characters/"+ (Number(params.index) + 1) +".jpg";
     let planetsImgSrc = "https://starwars-visualguide.com/assets/img/planets/" + (Number(params.index) + 1) + ".jpg";
-    let vehiclesImgSrc = "https://starwars-visualguide.com/assets/img/vehicles/" + (individual.url.split("https://swapi.dev/api/vehicles/").pop()).slice(0, -1) + ".jpg"
+    let vehiclesImgSrc = "https://starwars-visualguide.com/assets/img/vehicles/" + (individual.url.split("https://swapi.py4e.com/api/vehicles/").pop()).slice(0, -1) + ".jpg"
 
     params.type === "people" ? (
         returnOutput = (
