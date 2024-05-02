@@ -9,29 +9,36 @@ const Card = (props) => {
 
     props.cardType === "person" ? (
         returnOutput = (
-            <div className="condensedCard card m-1">
-                <img 
-                    src={`https://starwars-visualguide.com/assets/img/characters/${props.index + 1}.jpg`}
-                    onError={({ currentTarget }) => {
-                        currentTarget.onerror = null;
-                        currentTarget.src="https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
-                    }} 
-                    className="card-img-top" 
-                    alt={props.person.name} 
-                />
+            <div className="condensedCard card m-1">                
+                <Link to={'individual/people/' + props.index}>
+                    <img 
+                        src={
+                            props.index < 16 ? 
+                            `https://starwars-visualguide.com/assets/img/characters/${props.index + 1}.jpg`
+                            :
+                            `https://starwars-visualguide.com/assets/img/characters/${props.index + 2}.jpg`
+                        }
+                        onError={({ currentTarget }) => {
+                            currentTarget.onerror = null;
+                            currentTarget.src="https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
+                        }} 
+                        className="card-img-top" 
+                        alt={props.person.name} 
+                    />
+                </Link>
                 <div className="card-body p-1">
                     <div className="blurb-container">
                         <h2>{props.person.name}</h2>
                         <p>Height : {props.person.height}</p>
                         <p>Mass : {props.person.mass}</p>
                         <p>Birth Year : {props.person.birth_year}</p>
-                    </div>
+                    </div>                    
                     <div className="container container-fluid d-flex blurb-container p-2">
-                        <div className="col text-start">
-                            <Link to={'individual/people/' + props.index}>
+                        <Link to={'individual/people/' + props.index}>
+                            <div className="col text-start">
                                 <button className="btn btn-warning">Learn More!</button>
-                            </Link>
-                        </div>
+                            </div>
+                        </Link>
                         <div className="col text-end">
                             <button className="btn btn-warning" onClick={() => actions.addToFavorites(props.person.name)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
@@ -48,15 +55,17 @@ const Card = (props) => {
     props.cardType === "planet" ? (
         returnOutput = (
             <div className="condensedCard card m-1">
-                <img 
-                    src={props.img} 
-                    onError={({ currentTarget }) => {
-                        currentTarget.onerror = null;
-                        currentTarget.src="https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
-                    }} 
-                    className="card-img-top" 
-                    alt={props.planet.name} 
-                />
+                <Link to={'individual/planets/' + props.index}>
+                    <img 
+                        src={props.img} 
+                        onError={({ currentTarget }) => {
+                            currentTarget.onerror = null;
+                            currentTarget.src="https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
+                        }} 
+                        className="card-img-top" 
+                        alt={props.planet.name} 
+                    />
+                </Link>
                 <div className="card-body p-1">
                     <div className="blurb-container">
                         <h2>{props.planet.name}</h2>
@@ -65,11 +74,11 @@ const Card = (props) => {
                         <p>Population : {props.planet.population}</p>
                     </div>
                     <div className="container container-fluid d-flex blurb-container p-2">
-                        <div className="col text-start">
-                            <Link to={'individual/planets/' + props.index}>
+                        <Link to={'individual/planets/' + props.index}>
+                            <div className="col text-start"> 
                                 <button className="btn btn-warning">Learn More!</button>
-                            </Link>
-                        </div>
+                            </div>
+                        </Link>                        
                         <div className="col text-end">
                             <button className="btn btn-warning" onClick={() => actions.addToFavorites(props.planet.name)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
@@ -86,28 +95,30 @@ const Card = (props) => {
     props.cardType === "vehicle" ? (
         returnOutput = (
             <div className="condensedCard card m-1">
-                <img 
-                    src={props.img} 
-                    onError={({ currentTarget }) => {
-                        currentTarget.onerror = null;
-                        currentTarget.src="https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
-                    }} 
-                    className="card-img-top" 
-                    alt={props.vehicle.name} 
-                />
+                <Link to={'individual/vehicles/' + props.index}>
+                        <img 
+                            src={props.img} 
+                            onError={({ currentTarget }) => {
+                                currentTarget.onerror = null;
+                                currentTarget.src="https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
+                            }} 
+                            className="card-img-top" 
+                            alt={props.vehicle.name} 
+                        />
+                </Link>
                 <div className="card-body p-1">
                     <div className="blurb-container">
                         <h2>{props.vehicle.name}</h2>
                         <p>Class: {props.vehicle.vehicle_class}</p>
                         <p>Model : {props.vehicle.model}</p>
                         <p>Manufacturer : {props.vehicle.manufacturer}</p>
-                        </div>
+                    </div>
                     <div className="container container-fluid d-flex blurb-container p-2">
-                        <div className="col text-start">
-                            <Link to={'individual/vehicles/' + props.index}>
+                        <Link to={'individual/vehicles/' + props.index}>
+                            <div className="col text-start">
                                 <button className="btn btn-warning">Learn More!</button>
-                            </Link>
-                        </div>
+                            </div>
+                        </Link>
                         <div className="col text-end">
                             <button className="btn btn-warning" onClick={() => actions.addToFavorites(props.vehicle.name)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
